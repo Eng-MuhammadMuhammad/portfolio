@@ -1,0 +1,133 @@
+/* Main container styling */
+.aboutContainer {
+    padding: 40px 150px;
+    background-color: #f9f9f9da;
+    font-family: Arial, sans-serif;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* About contents section for larger screens (side-by-side layout) */
+.aboutcontents {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    max-width: 1200px;
+    width: 100%;
+    justify-content: center;
+}
+
+/* Single-column layout for screens smaller than 1200px */
+@media (max-width: 1200px) {
+    .aboutcontents {
+        grid-template-columns: 1fr;
+        justify-items: center;
+        text-align: center;
+    }
+}
+
+/* Mobile styling for screens up to 768px */
+@media (max-width: 768px) {
+    .aboutContainer {
+        padding: 20px;
+    }
+    
+    .infoSection, .statsSection {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    
+    /* Make stats items stack vertically within statsSection */
+    .statsSection {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+}
+
+/* Background text styling */
+.aboutContainer::before {
+    content: "ABOUT ME";
+    position: absolute;
+    top: 40%;
+    left: 20%;
+    font-size: 10rem;
+    color: rgba(211, 211, 211, 0.2);
+    white-space: nowrap;
+    display: flex;
+    z-index: 0;
+    opacity: 0;
+    animation: fadeInLetters 2s forwards;
+}
+
+@keyframes fadeInLetters {
+    0% {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.title, .infoSection, .statsSection {
+    position: relative;
+    z-index: 1;
+}
+
+/* Title Styling */
+.title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #000;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Personal Info Section */
+.infoSection {
+    max-width: 600px;
+    color: #333;
+    line-height: 1.6;
+}
+
+.infoSection h4 {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.infoSection p {
+    margin: 5px 0;
+    color: #666;
+}
+
+/* Stats Section */
+.statsSection {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 60px;
+}
+
+.statItem {
+    text-align: center;
+}
+
+.statItem .statNumber {
+    font-size: 4rem;
+    color: #5a5dff;
+    font-weight: bold;
+}
+
+.statItem .statLabel {
+    font-size: 1rem;
+    color: #333;
+    margin-top: 5px;
+}

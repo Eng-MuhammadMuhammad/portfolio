@@ -1,0 +1,207 @@
+.contactContainer {
+    padding: 2rem;
+    text-align: center;
+    animation: fadeIn 1s ease-in-out;
+  }
+  
+  .title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+  }
+  
+  .contactContent {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 8rem;
+  }
+  
+  .contactForm {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    background-color: #f4f4f4;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    width: 100%;
+    animation: slideIn 0.5s ease-out;
+  }
+  
+  .inputGroup {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .label {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: #5a5dff;
+  }
+  
+  .input, .textarea {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+  }
+  
+  .input:focus, .textarea:focus {
+    border-color: #f5a623;
+    outline: none;
+  }
+  
+  .textarea {
+    resize: vertical;
+    height: 100px;
+  }
+  
+  .button {
+    grid-column: span 2;
+    padding: 0.75rem;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #5a5dff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .button:hover {
+    background-color: black;
+  }
+  
+  .contactInfo {
+    max-width: 300px;
+    text-align: left;
+    font-size: 1rem;
+  }
+  
+  .contactDetails {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+  }
+  
+  .contactDetails li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+  }
+  
+  .icon {
+    font-size: 1.2rem;
+    margin-right: 0.5rem;
+    color: #f5a623;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  @keyframes slideIn {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+  
+  @media (max-width: 768px) {
+    .contactForm {
+      grid-template-columns: 1fr;
+    }
+  
+    .contactContent {
+      flex-direction: column;
+    }
+  }
+  
+  
+  
+  @media (max-width: 992px) {
+    .contactContent {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center; /* Ensures vertical centering */
+      gap: 2rem; /* Adjust the gap as needed for spacing */
+      text-align: center; /* Centers the text inside both sections */
+      height: 100vh; /* Makes sure it takes full screen height */
+    }
+  
+    .contactForm {
+      max-width: 100%; /* Ensure the form takes full width */
+      width: 90%; /* Optional: Adds a little padding to the form */
+    }
+  
+    .contactInfo {
+      max-width: 100%; /* Ensure contact info section takes full width */
+      text-align: center; /* Center text */
+      display: flex;
+      flex-direction: column; /* Stacks the list vertically */
+      align-items: center; /* Centers content horizontally */
+      justify-content: center; /* Ensures it stays centered vertically */
+    }
+  
+    .contactDetails {
+      display: flex;
+      flex-direction: column; /* Ensures the list is stacked vertically */
+      align-items: center; /* Centers list items horizontally */
+    }
+  
+    .contactDetails li {
+      display: flex;
+      justify-content: center; /* Centers the list item content horizontally */
+      align-items: center;
+      margin-bottom: 0.5rem;
+    }
+  }
+  
+  
+  @media (max-width: 768px) {
+    .contactForm {
+      display: flex;
+      flex-direction: column; /* Ensure all fields are stacked in a single column */
+      align-items: center; /* Center the form fields horizontally */
+      width: 90%; /* Ensure form width fits within screen size */
+      max-width: 500px; /* Optional: Set a max-width for better presentation */
+      margin: 0 auto; /* Center the form horizontally on the screen */
+      padding: 2rem; /* Ensure some padding around form elements */
+    }
+  
+    .contactContent {
+      flex-direction: column; /* Stack the form and contact info vertically */
+      align-items: center; /* Center the content horizontally */
+      justify-content: center; /* Center the content vertically */
+      gap: 2rem; /* Adjust the space between form and contact info */
+      text-align: center; /* Center text content */
+    }
+  
+    .inputGroup {
+      width: 100%; /* Ensure the input fields stretch across full width */
+    }
+  
+    .label {
+      margin-bottom: 0.5rem;
+    }
+  
+    .input, .textarea {
+      width: 100%; /* Make sure inputs and textarea fill the form width */
+      max-width: 400px; /* Optional: Limit width of input fields */
+    }
+  
+    .button {
+      width: 100%; /* Ensure button spans full width */
+      max-width: 400px; /* Optional: Limit button width */
+    }
+  }
+  
+  
+  
+  .boldText {
+    font-weight: bold;
+  }
+  

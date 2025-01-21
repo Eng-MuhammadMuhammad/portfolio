@@ -1,0 +1,99 @@
+.experiences {
+    padding: 20px;
+    max-width: 800px;
+    margin: auto;
+    background-color: #f9f9f9da;
+  }
+  
+  .heading {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .timeline {
+    position: relative;
+    padding-left: 40px;
+  }
+  
+  .timeline::before {
+    content: "";
+    position: absolute;
+    left: 15px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: #ccc;
+  }
+  
+  .experienceItem {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    padding: 20px 0;
+    align-items: start;
+    opacity: 0; /* Hidden initially */
+    transform: translateY(20px); /* Position for animation */
+    transition: opacity 0.5s ease, transform 0.5s ease; /* Transition settings */
+  }
+  
+  .experienceItem.visible {
+    opacity: 1; /* Fade in */
+    transform: translateY(0); /* Slide up */
+  }
+  
+  .date {
+    font-weight: bold;
+    color: #333;
+    text-align: right;
+    padding-right: 10px;
+  }
+  
+  .icon {
+    font-size: 2rem;
+    color: #555;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  
+  .details {
+    padding-left: 20px;
+    border-left: 2px solid #ccc;
+  }
+  
+  .company {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 0;
+  }
+  
+  .duration,
+  .role,
+  .description,
+  .skills {
+    margin: 5px 0;
+    color: #555;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 600px) {
+    .timeline {
+      padding-left: 20px;
+    }
+  
+    .experienceItem {
+      grid-template-columns: 1fr;
+      padding: 10px 0;
+    }
+  
+    .date {
+      text-align: left;
+    }
+  
+    .details {
+      padding-left: 10px;
+      border-left: none;
+    }
+  }
+  
