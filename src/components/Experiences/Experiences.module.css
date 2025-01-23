@@ -1,99 +1,152 @@
 .experiences {
-    padding: 20px;
-    max-width: 800px;
-    margin: auto;
-    background-color: #f9f9f9da;
+  padding: 60px 20px;
+  max-width: 1200px;
+  margin: auto;
+  background: linear-gradient(135deg, #f9f9f9, #e0e0e0);
+}
+
+.heading {
+  text-align: center;
+  font-size: 2.8rem;
+  font-weight: bold;
+  margin-bottom: 50px;
+  color: #333;
+  position: relative;
+}
+
+.heading::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, #6a11cb, #2575fc);
+  border-radius: 2px;
+}
+
+.timeline {
+  position: relative;
+  padding-left: 40px;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 20px;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: linear-gradient(180deg, #6a11cb, #2575fc);
+  border-radius: 2px;
+}
+
+.experienceItem {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 40px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.experienceItem.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.icon {
+  font-size: 2rem;
+  color: #fff;
+  margin-right: 20px;
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  border-radius: 50%;
+  padding: 15px;
+  min-width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(106, 17, 203, 0.3);
+}
+
+.content {
+  flex: 1;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.date {
+  font-weight: bold;
+  color: #6a11cb;
+  margin-bottom: 10px;
+  font-size: 0.95rem;
+}
+
+.company {
+  font-size: 1.6rem;
+  font-weight: bold;
+  margin: 0 0 10px;
+  color: #333;
+}
+
+.duration {
+  font-size: 0.9rem;
+  color: #666;
+  margin: 0 0 10px;
+}
+
+.role {
+  font-size: 1rem;
+  color: #444;
+  margin: 0 0 10px;
+  font-weight: 500;
+}
+
+.description {
+  font-size: 0.95rem;
+  color: #555;
+  margin: 0 0 15px;
+  line-height: 1.6;
+}
+
+.skills {
+  font-size: 0.9rem;
+  color: #666;
+  background: rgba(106, 17, 203, 0.1);
+  padding: 8px 12px;
+  border-radius: 8px;
+  display: inline-block;
+}
+
+.skills span {
+  font-weight: bold;
+  color: #6a11cb;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .timeline {
+    padding-left: 20px;
   }
-  
-  .heading {
+
+  .experienceItem {
+    flex-direction: column;
+    align-items: center;
     text-align: center;
-    font-size: 2rem;
-    font-weight: bold;
+  }
+
+  .icon {
+    margin-right: 0;
     margin-bottom: 20px;
   }
-  
-  .timeline {
-    position: relative;
-    padding-left: 40px;
+
+  .content {
+    padding: 15px;
   }
-  
-  .timeline::before {
-    content: "";
-    position: absolute;
-    left: 15px;
-    top: 0;
-    bottom: 0;
-    width: 2px;
-    background-color: #ccc;
-  }
-  
-  .experienceItem {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-    padding: 20px 0;
-    align-items: start;
-    opacity: 0; /* Hidden initially */
-    transform: translateY(20px); /* Position for animation */
-    transition: opacity 0.5s ease, transform 0.5s ease; /* Transition settings */
-  }
-  
-  .experienceItem.visible {
-    opacity: 1; /* Fade in */
-    transform: translateY(0); /* Slide up */
-  }
-  
-  .date {
-    font-weight: bold;
-    color: #333;
-    text-align: right;
-    padding-right: 10px;
-  }
-  
-  .icon {
-    font-size: 2rem;
-    color: #555;
-    text-align: center;
-    margin-bottom: 10px;
-  }
-  
-  .details {
-    padding-left: 20px;
-    border-left: 2px solid #ccc;
-  }
-  
-  .company {
-    font-size: 1.2rem;
-    font-weight: bold;
-    margin: 0;
-  }
-  
-  .duration,
-  .role,
-  .description,
-  .skills {
-    margin: 5px 0;
-    color: #555;
-  }
-  
-  /* Responsive adjustments */
-  @media (max-width: 600px) {
-    .timeline {
-      padding-left: 20px;
-    }
-  
-    .experienceItem {
-      grid-template-columns: 1fr;
-      padding: 10px 0;
-    }
-  
-    .date {
-      text-align: left;
-    }
-  
-    .details {
-      padding-left: 10px;
-      border-left: none;
-    }
-  }
-  
+}
