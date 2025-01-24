@@ -23,9 +23,8 @@ const Footer = () => {
         <p className={styles.date}>{formattedDate}</p>
       </div>
       <div className={styles.rightContent}>
-       
         <div className={styles.icons}>
-        <p className={styles.contactLabel}>Contact Me:</p>
+          <p className={styles.contactLabel}>Contact Me:</p>
 
           <a
             href="https://www.facebook.com/profile.php?id=100035195543126"
@@ -35,7 +34,7 @@ const Footer = () => {
             <FontAwesomeIcon icon={faFacebook} className={styles.icon} />
           </a>
           <a
-            href="https://wa.me/00963992133889"
+            href="https://wa.me/+963992133889"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -56,15 +55,10 @@ const Footer = () => {
           >
             <FontAwesomeIcon icon={faEnvelope} className={styles.icon} />
           </a>
-          <a
-            href="tel:+00963992133889"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a href="tel:+963992133889" target="_blank" rel="noopener noreferrer">
             <FontAwesomeIcon icon={faMobileAlt} className={styles.icon} />
           </a>
         </div>
-        
       </div>
     </footer>
   );
