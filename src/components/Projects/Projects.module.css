@@ -82,8 +82,8 @@
   .projectButton {
     padding: 10px 20px;
     font-size: 1em;
-    color: #fff;
-    background-color: #333;
+    color: #333;
+    background-color:#fff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -91,9 +91,7 @@
     transition: background-color 0.3s ease;
   }
   
-  .projectButton:hover {
-    background-color: #555;
-  }
+ 
   
   .viewAllButtonContainer {
     display: flex;

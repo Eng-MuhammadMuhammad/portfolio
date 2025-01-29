@@ -5,7 +5,7 @@ import ProjectsData from "./ProjectsData";
 const Projects = () => {
   const [showAll, setShowAll] = useState(false);
 
-  // Determine the projects to display: limited to 6 if `showAll` is false
+ 
   const displayedProjects = showAll ? ProjectsData : ProjectsData.slice(0, 6);
 
   return (
