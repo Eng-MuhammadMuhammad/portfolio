@@ -1,40 +1,71 @@
-// ScrollToTop.js
-import React, { useState, useEffect } from 'react';
-import styles from './ScrollToTop.module.css';
+import { useState, useEffect, memo } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import styles from "./ScrollToTop.module.css";
+import "../Styles/Styles.module.css";
 
-const ScrollToTop = () => {
+const ScrollToTop = memo(() => {
   const [isVisible, setIsVisible] = useState(false);
 
-  // Show or hide the button based on scroll position
-  useEffect(() => {
-    const toggleVisibility = () => {
-      if (window.pageYOffset > 300) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
-      }
-    };
+  const useScrollListener = (threshold = 300) => {
+    useEffect(() => {
+      let timeoutId;
+      const handleScroll = () => {
+        clearTimeout(timeoutId);
+        timeoutId = setTimeout(() => {
+          setIsVisible(window.scrollY > threshold);
+        }, 100);
+      };
 
-    window.addEventListener('scroll', toggleVisibility);
-    return () => window.removeEventListener('scroll', toggleVisibility);
-  }, []);
+      window.addEventListener("scroll", handleScroll, { passive: true });
+      return () => {
+        window.removeEventListener("scroll", handleScroll);
+        clearTimeout(timeoutId);
+      };
+    }, [threshold]);
+  };
 
-  // Scroll to the top of the page
+  useScrollListener(300);
+
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: 'smooth',
+      behavior: "smooth",
     });
   };
 
   return (
-    isVisible && (
-      <button onClick={scrollToTop} className={styles.scrollToTop}>
-       ↑
-       <span className={styles.tooltip}>Scroll Top</span>
-      </button>
-    )
+    <AnimatePresence>
+      {isVisible && (
+        <motion.button
+          className={styles.scrollButton}
+          onClick={scrollToTop}
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0, scale: 0.8 }}
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.95 }}
+          aria-label="Scroll to top"
+        >
+          <svg
+            className={styles.arrow}
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M5 15l7-7 7 7"
+            />
+          </svg>
+          <span className={styles.tooltip}>Back to Top</span>
+        </motion.button>
+      )}
+    </AnimatePresence>
   );
-};
+});
+
+ScrollToTop.displayName = "ScrollToTop";
 
 export default ScrollToTop;

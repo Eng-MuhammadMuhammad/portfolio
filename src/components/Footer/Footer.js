@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import styles from "./Footer.module.css";
-
+import "../Styles/Styles.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faFacebook,
@@ -10,22 +10,42 @@ import {
 import { faEnvelope, faMobileAlt } from "@fortawesome/free-solid-svg-icons";
 
 const Footer = () => {
-  // Get current month and year dynamically
+  const footerRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add(styles.animateIn);
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: "0px 0px -50px 0px" }
+    );
+
+    const currentFooter = footerRef.current;
+    if (currentFooter) observer.observe(currentFooter);
+
+    return () => {
+      if (currentFooter) observer.unobserve(currentFooter);
+    };
+  }, []);
+
   const currentDate = new Date();
   const month = currentDate.toLocaleString("default", { month: "long" });
   const year = currentDate.getFullYear();
   const formattedDate = `${month} / ${year}`;
 
   return (
-    <footer className={styles.footer}>
+    <footer ref={footerRef} className={styles.footer}>
       <div className={styles.leftContent}>
         <p>Powered By Muhammad Muhammad © All Rights Reserved</p>
         <p className={styles.date}>{formattedDate}</p>
       </div>
       <div className={styles.rightContent}>
+        <p className={styles.contactLabel}>Contact Me:</p>
         <div className={styles.icons}>
-          <p className={styles.contactLabel}>Contact Me:</p>
-
           <a
             href="https://www.facebook.com/profile.php?id=100035195543126"
             target="_blank"
@@ -40,7 +60,6 @@ const Footer = () => {
           >
             <FontAwesomeIcon icon={faWhatsapp} className={styles.icon} />
           </a>
-
           <a
             href="https://www.linkedin.com/in/muhammad-muhammad-217640173"
             target="_blank"

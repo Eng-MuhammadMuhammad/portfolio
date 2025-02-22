@@ -1,15 +1,37 @@
-import React, { useState } from 'react';
-import emailjs from 'emailjs-com';
-import styles from './Contact.module.css';
-import '../Styles/Styles.module.css';
+import React, { useState, useEffect, useRef } from "react";
+import emailjs from "emailjs-com";
+import "../Styles/Styles.module.css";
+import styles from "./Contact.module.css";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
   });
+
+  const formRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add(styles.animateIn);
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: "0px 0px -50px 0px" }
+    );
+
+    const currentForm = formRef.current;
+    if (currentForm) observer.observe(currentForm);
+
+    return () => {
+      if (currentForm) observer.unobserve(currentForm);
+    };
+  }, []);
 
   const handleChange = (e) => {
     const { id, value } = e.target;
@@ -22,35 +44,46 @@ const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Check if all fields are filled
-    if (!formData.name || !formData.email || !formData.subject || !formData.message) {
-      alert('Please fill out all fields before sending.');
+    if (
+      !formData.name ||
+      !formData.email ||
+      !formData.subject ||
+      !formData.message
+    ) {
+      alert("Please fill out all fields before sending.");
       return;
     }
 
-    emailjs.send(
-      'service_zqroxbt', 
-      'template_cxox12e', 
-      formData,
-      '1zhBeaEHtZOMzd2XK' 
-    )
-    .then((result) => {
-      alert('Message sent successfully!');
-      setFormData({ name: '', email: '', subject: '', message: '' }); // Reset form
-    })
-    .catch((error) => {
-      alert('Error sending message. Please try again.');
-      console.error('EmailJS Error:', error);
-    });
+    emailjs
+      .send(
+        "service_zqroxbt",
+        "template_cxox12e",
+        formData,
+        "1zhBeaEHtZOMzd2XK"
+      )
+      .then((result) => {
+        alert("Message sent successfully!");
+        setFormData({ name: "", email: "", subject: "", message: "" });
+      })
+      .catch((error) => {
+        alert("Error sending message. Please try again.");
+        console.error("EmailJS Error:", error);
+      });
   };
 
   return (
-    <div id='contact' className={styles.contactContainer}>
-      <h2 className={styles.title}>CONTACT ME</h2>
-      <div className={styles.contactContent}>
-        <form className={styles.contactForm} onSubmit={handleSubmit}>
+    <section id="contact" className={styles.contactSection}>
+      <h2 className={styles.sectionTitle}>Contact Me</h2>
+      <div className={styles.contactContainer}>
+        <form
+          ref={formRef}
+          className={styles.contactForm}
+          onSubmit={handleSubmit}
+        >
           <div className={styles.inputGroup}>
-            <label className={styles.label} htmlFor="name">Name</label>
+            <label className={styles.label} htmlFor="name">
+              Name
+            </label>
             <input
               type="text"
               id="name"
@@ -60,7 +93,9 @@ const Contact = () => {
             />
           </div>
           <div className={styles.inputGroup}>
-            <label className={styles.label} htmlFor="email">Email</label>
+            <label className={styles.label} htmlFor="email">
+              Email
+            </label>
             <input
               type="email"
               id="email"
@@ -70,7 +105,9 @@ const Contact = () => {
             />
           </div>
           <div className={styles.inputGroup}>
-            <label className={styles.label} htmlFor="subject">Subject</label>
+            <label className={styles.label} htmlFor="subject">
+              Subject
+            </label>
             <input
               type="text"
               id="subject"
@@ -80,27 +117,43 @@ const Contact = () => {
             />
           </div>
           <div className={styles.inputGroup}>
-            <label className={styles.label} htmlFor="message">Message</label>
+            <label className={styles.label} htmlFor="message">
+              Message
+            </label>
             <textarea
               id="message"
               value={formData.message}
               onChange={handleChange}
               className={styles.textarea}
-            ></textarea>
+            />
           </div>
-          <button type="submit" className={styles.button}>Send</button>
+          <button type="submit" className={styles.submitButton}>
+            Send
+          </button>
         </form>
         <div className={styles.contactInfo}>
-        <p>You have an idea and need a developer to bring it to life ? feel free to contact me | <span className={styles.boldText}>OR directly by filling out the form below</span></p>
-
+          <p>
+            Have an idea and need a developer to bring it to life? Feel free to
+            contact me{" "}
+            <span className={styles.boldText}>
+              or directly by filling out the form
+            </span>
+          </p>
           <ul className={styles.contactDetails}>
-            <li><span className={styles.icon}>📧</span> muhammadhaidarmuhammad@gmail.com</li>
-            <li><span className={styles.icon}>📞</span> +963992133889</li>
-            <li><span className={styles.icon}>💬</span> +963992133889</li>
+            <li>
+              <span className={styles.icon}>📧</span>{" "}
+              muhammadhaidarmuhammad@gmail.com
+            </li>
+            <li>
+              <span className={styles.icon}>📞</span> +963992133889
+            </li>
+            <li>
+              <span className={styles.icon}>💬</span> +963992133889
+            </li>
           </ul>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

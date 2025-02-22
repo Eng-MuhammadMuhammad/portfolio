@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import styles from "./Experiences.module.css";
+import "../Styles/Styles.module.css";
 import { FaBriefcase, FaBuilding, FaCalculator } from "react-icons/fa";
 
 const experiences = [
@@ -91,18 +92,18 @@ const Experiences = () => {
   const itemsRef = useRef([]);
 
   useEffect(() => {
-    const currentItems = itemsRef.current;
-
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add(styles.visible);
+            entry.target.classList.add(styles.animateIn);
           }
         });
       },
-      { threshold: 0.1 }
+      { threshold: 0.15, rootMargin: "0px 0px -50px 0px" }
     );
+
+    const currentItems = itemsRef.current;
 
     currentItems.forEach((item) => {
       if (item) observer.observe(item);
@@ -116,32 +117,33 @@ const Experiences = () => {
   }, []);
 
   return (
-    <div id="experiences" className={styles.experiences}>
-      <h2 className={styles.heading}>EXPERIENCES</h2>
-      <div className={styles.timeline}>
+    <section id="experiences" className={styles.experienceSection}>
+      <h2 className={styles.sectionTitle}>Experiences</h2>
+      <div className={styles.timelineContainer}>
+        <div className={styles.timelineLine}></div>
         {experiences.map((exp, index) => (
-          <div
+          <article
             key={index}
-            className={styles.experienceItem}
+            className={styles.experienceCard}
             ref={(el) => (itemsRef.current[index] = el)}
           >
-            <div className={styles.icon}>{exp.icon}</div>
-            <div className={styles.content}>
-              <div className={styles.date}>{exp.date}</div>
-              <h3 className={styles.company}>{exp.company}</h3>
-              <p className={styles.duration}>
-                {exp.duration} - {exp.location}
+            <div className={styles.cardIcon}>{exp.icon}</div>
+            <div className={styles.cardContent}>
+              <span className={styles.cardDate}>{exp.date}</span>
+              <h3 className={styles.cardCompany}>{exp.company}</h3>
+              <p className={styles.cardMeta}>
+                {exp.duration} • {exp.location}
               </p>
-              <p className={styles.role}>{exp.role}</p>
-              <p className={styles.description}>{exp.description}</p>
-              <div className={styles.skills}>
-                <span>Skills:</span> {exp.skills}
+              <p className={styles.cardRole}>{exp.role}</p>
+              <p className={styles.cardDescription}>{exp.description}</p>
+              <div className={styles.cardSkills}>
+                <span className={styles.skillsLabel}>Skills:</span> {exp.skills}
               </div>
             </div>
-          </div>
+          </article>
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 

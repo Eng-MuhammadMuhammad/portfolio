@@ -1,152 +1,168 @@
-.experiences {
-  padding: 60px 20px;
-  max-width: 1200px;
-  margin: auto;
-  background: linear-gradient(135deg, #f9f9f9, #e0e0e0);
+.experienceSection {
+  padding: 4rem 1rem;
+  width: 100%;
+  margin: 0 auto;
+  background: linear-gradient(180deg, #0a0a23 0%, #1a1a3d 100%);
+  color: #ffffff;
+  position: relative;
+  overflow: hidden;
 }
 
-.heading {
+.sectionTitle {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 800;
   text-align: center;
-  font-size: 2.8rem;
-  font-weight: bold;
-  margin-bottom: 50px;
-  color: #333;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 3rem;
+  background: linear-gradient(90deg, #00ddeb, #ff007a);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 20px rgba(0, 221, 235, 0.5);
+}
+
+.timelineContainer {
   position: relative;
+  padding-left: 2rem;
 }
 
-.heading::after {
-  content: '';
+.timelineLine {
   position: absolute;
-  bottom: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 60px;
-  height: 4px;
-  background: linear-gradient(90deg, #6a11cb, #2575fc);
-  border-radius: 2px;
-}
-
-.timeline {
-  position: relative;
-  padding-left: 40px;
-}
-
-.timeline::before {
-  content: "";
-  position: absolute;
-  left: 20px;
+  left: 1rem;
   top: 0;
   bottom: 0;
-  width: 4px;
-  background: linear-gradient(180deg, #6a11cb, #2575fc);
-  border-radius: 2px;
+  width: 0.25rem;
+  background: linear-gradient(
+    to bottom,
+    #00ddeb 0%,
+    rgba(0, 221, 235, 0.2) 100%
+  );
+  z-index: 1;
 }
 
-.experienceItem {
-  display: flex;
-  align-items: flex-start;
-  margin-bottom: 40px;
+.experienceCard {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1rem;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
   opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  transform: translateX(-2rem);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  z-index: 2;
 }
 
-.experienceItem.visible {
+.experienceCard:hover {
+  transform: translateY(-0.25rem);
+  box-shadow: 0 15px 40px rgba(0, 221, 235, 0.2);
+  border-color: rgba(0, 221, 235, 0.3);
+}
+
+.animateIn {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateX(0);
 }
 
-.icon {
-  font-size: 2rem;
-  color: #fff;
-  margin-right: 20px;
-  background: linear-gradient(135deg, #6a11cb, #2575fc);
-  border-radius: 50%;
-  padding: 15px;
-  min-width: 60px;
-  height: 60px;
+.cardIcon {
+  width: 3.5rem;
+  height: 3.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 15px rgba(106, 17, 203, 0.3);
+  background: linear-gradient(135deg, #00ddeb, #ff007a);
+  border-radius: 50%;
+  font-size: 1.5rem;
+  box-shadow: 0 0 15px rgba(0, 221, 235, 0.5);
 }
 
-.content {
-  flex: 1;
-  padding: 20px;
-  background: rgba(255, 255, 255, 0.8);
-  border-radius: 12px;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+.cardContent {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
 }
 
-.date {
-  font-weight: bold;
-  color: #6a11cb;
-  margin-bottom: 10px;
-  font-size: 0.95rem;
+.cardDate {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #00ddeb;
+  letter-spacing: 0.05em;
 }
 
-.company {
-  font-size: 1.6rem;
-  font-weight: bold;
-  margin: 0 0 10px;
-  color: #333;
+.cardCompany {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.2;
 }
 
-.duration {
-  font-size: 0.9rem;
-  color: #666;
-  margin: 0 0 10px;
+.cardMeta {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.7);
 }
 
-.role {
+.cardRole {
   font-size: 1rem;
-  color: #444;
-  margin: 0 0 10px;
   font-weight: 500;
+  color: #ff007a;
 }
 
-.description {
-  font-size: 0.95rem;
-  color: #555;
-  margin: 0 0 15px;
+.cardDescription {
+  font-size: 0.9375rem;
   line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9);
 }
 
-.skills {
-  font-size: 0.9rem;
-  color: #666;
-  background: rgba(106, 17, 203, 0.1);
-  padding: 8px 12px;
-  border-radius: 8px;
-  display: inline-block;
+.cardSkills {
+  font-size: 0.875rem;
+  padding: 0.5rem 1rem;
+  background: rgba(0, 221, 235, 0.1);
+  border-radius: 2rem;
+  color: rgba(255, 255, 255, 0.9);
 }
 
-.skills span {
-  font-weight: bold;
-  color: #6a11cb;
+.skillsLabel {
+  font-weight: 700;
+  color: #00ddeb;
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .timeline {
-    padding-left: 20px;
+@media (max-width: 48rem) {
+  .experienceSection {
+    padding: 2rem 0.5rem;
   }
 
-  .experienceItem {
-    flex-direction: column;
-    align-items: center;
+  .timelineContainer {
+    padding-left: 1rem;
+  }
+
+  .timelineLine {
+    left: 0.5rem;
+  }
+
+  .experienceCard {
+    grid-template-columns: 1fr;
     text-align: center;
+    padding: 1rem;
   }
 
-  .icon {
-    margin-right: 0;
-    margin-bottom: 20px;
+  .cardIcon {
+    margin: 0 auto 1rem;
   }
 
-  .content {
-    padding: 15px;
+  .cardCompany {
+    font-size: 1.25rem;
+  }
+}
+
+@media (min-width: 75rem) {
+  .experienceCard {
+    padding: 2rem;
+    gap: 2rem;
   }
 }

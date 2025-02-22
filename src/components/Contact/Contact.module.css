@@ -1,207 +1,189 @@
+.contactSection {
+  padding: 4rem 1rem;
+  width: 100%;
+  margin: 0 auto;
+  background: linear-gradient(180deg, #0a0a23 0%, #1a1a3d 100%);
+  color: #ffffff;
+  position: relative;
+  overflow: hidden;
+}
+
+.sectionTitle {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 800;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 3rem;
+  background: linear-gradient(90deg, #00ddeb, #ff007a);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 20px rgba(0, 221, 235, 0.5);
+}
+
 .contactContainer {
-    padding: 2rem;
-    text-align: center;
-    animation: fadeIn 1s ease-in-out;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  padding: 0 1rem;
+}
+
+.contactForm {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1rem;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  transform: translateX(-2rem);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.animateIn {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #00ddeb;
+  text-transform: uppercase;
+}
+
+.input,
+.textarea {
+  padding: 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  color: #ffffff;
+  font-size: 1rem;
+  width: 100%; /* Already full width */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.input:focus,
+.textarea:focus {
+  border-color: #ff007a;
+  box-shadow: 0 0 10px rgba(255, 0, 122, 0.5);
+  outline: none;
+}
+
+.textarea {
+  grid-column: span 2;
+  resize: vertical;
+  min-height: 8rem;
+}
+
+.submitButton {
+  grid-column: span 2;
+  padding: 0.75rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+  background: linear-gradient(135deg, #00ddeb, #ff007a);
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.submitButton:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(0, 221, 235, 0.5);
+}
+
+.contactInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.boldText {
+  font-weight: 700;
+  color: #ff007a;
+}
+
+.contactDetails {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.contactDetails li {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.icon {
+  font-size: 1.25rem;
+  color: #00ddeb;
+}
+
+@media (max-width: 48rem) {
+  .contactSection {
+    padding: 2rem 0.5rem;
   }
-  
-  .title {
-    font-size: 2rem;
-    font-weight: bold;
-    margin-bottom: 2rem;
+
+  .contactContainer {
+    grid-template-columns: 1fr;
+    padding: 0 0.5rem;
   }
-  
-  .contactContent {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    gap: 8rem;
-  }
-  
+
   .contactForm {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-    background-color: #f4f4f4;
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    max-width: 600px;
-    width: 100%;
-    animation: slideIn 0.5s ease-out;
+    grid-template-columns: 1fr;
+    padding: 1.5rem;
   }
-  
+
   .inputGroup {
+    grid-column: 1 / -1;
+  }
+
+  .input,
+  .textarea,
+  .submitButton {
+    grid-column: 1 / -1;
+    width: 100%;
+  }
+
+  .textarea {
+    grid-column: 1 / -1;
+  }
+
+  .submitButton {
+    grid-column: 1 / -1;
+  }
+
+  .contactInfo {
+    text-align: center;
+  }
+
+  .contactDetails {
     display: flex;
     flex-direction: column;
-  }
-  
-  .label {
-    font-weight: bold;
-    margin-bottom: 0.5rem;
-    color: #5a5dff;
-  }
-  
-  .input, .textarea {
-    padding: 0.5rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 1rem;
-    transition: border-color 0.3s ease;
-  }
-  
-  .input:focus, .textarea:focus {
-    border-color: #f5a623;
-    outline: none;
-  }
-  
-  .textarea {
-    resize: vertical;
-    height: 100px;
-  }
-  
-  .button {
-    grid-column: span 2;
-    padding: 0.75rem;
-    font-size: 1rem;
-    color: #fff;
-    background-color: #5a5dff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .button:hover {
-    background-color: black;
-  }
-  
-  .contactInfo {
-    max-width: 300px;
-    text-align: left;
-    font-size: 1rem;
-  }
-  
-  .contactDetails {
-    list-style: none;
-    padding: 0;
-    margin: 1rem 0;
-  }
-  
-  .contactDetails li {
-    display: flex;
     align-items: center;
-    margin-bottom: 0.5rem;
   }
-  
-  .icon {
-    font-size: 1.2rem;
-    margin-right: 0.5rem;
-    color: #f5a623;
+}
+
+@media (min-width: 75rem) {
+  .contactForm {
+    padding: 2.5rem;
   }
-  
-  @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
-  
-  @keyframes slideIn {
-    from { transform: translateY(20px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
-  }
-  
-  @media (max-width: 768px) {
-    .contactForm {
-      grid-template-columns: 1fr;
-    }
-  
-    .contactContent {
-      flex-direction: column;
-    }
-  }
-  
-  
-  
-  @media (max-width: 992px) {
-    .contactContent {
-      flex-direction: column;
-      align-items: center;
-      justify-content: center; /* Ensures vertical centering */
-      gap: 2rem; /* Adjust the gap as needed for spacing */
-      text-align: center; /* Centers the text inside both sections */
-      height: 100vh; /* Makes sure it takes full screen height */
-    }
-  
-    .contactForm {
-      max-width: 100%; /* Ensure the form takes full width */
-      width: 90%; /* Optional: Adds a little padding to the form */
-    }
-  
-    .contactInfo {
-      max-width: 100%; /* Ensure contact info section takes full width */
-      text-align: center; /* Center text */
-      display: flex;
-      flex-direction: column; /* Stacks the list vertically */
-      align-items: center; /* Centers content horizontally */
-      justify-content: center; /* Ensures it stays centered vertically */
-    }
-  
-    .contactDetails {
-      display: flex;
-      flex-direction: column; /* Ensures the list is stacked vertically */
-      align-items: center; /* Centers list items horizontally */
-    }
-  
-    .contactDetails li {
-      display: flex;
-      justify-content: center; /* Centers the list item content horizontally */
-      align-items: center;
-      margin-bottom: 0.5rem;
-    }
-  }
-  
-  
-  @media (max-width: 768px) {
-    .contactForm {
-      display: flex;
-      flex-direction: column; /* Ensure all fields are stacked in a single column */
-      align-items: center; /* Center the form fields horizontally */
-      width: 90%; /* Ensure form width fits within screen size */
-      max-width: 500px; /* Optional: Set a max-width for better presentation */
-      margin: 0 auto; /* Center the form horizontally on the screen */
-      padding: 2rem; /* Ensure some padding around form elements */
-    }
-  
-    .contactContent {
-      flex-direction: column; /* Stack the form and contact info vertically */
-      align-items: center; /* Center the content horizontally */
-      justify-content: center; /* Center the content vertically */
-      gap: 2rem; /* Adjust the space between form and contact info */
-      text-align: center; /* Center text content */
-    }
-  
-    .inputGroup {
-      width: 100%; /* Ensure the input fields stretch across full width */
-    }
-  
-    .label {
-      margin-bottom: 0.5rem;
-    }
-  
-    .input, .textarea {
-      width: 100%; /* Make sure inputs and textarea fill the form width */
-      max-width: 400px; /* Optional: Limit width of input fields */
-    }
-  
-    .button {
-      width: 100%; /* Ensure button spans full width */
-      max-width: 400px; /* Optional: Limit button width */
-    }
-  }
-  
-  
-  
-  .boldText {
-    font-weight: bold;
-  }
-  
+}

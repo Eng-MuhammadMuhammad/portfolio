@@ -1,80 +1,109 @@
-/* Main footer styling */
 .footer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    background: linear-gradient(to bottom, #fff, #5a5dff);
-    color: #333;
-    font-family: Arial, sans-serif;
-    text-align: center;
+  padding: 2rem 1rem;
+  background: linear-gradient(180deg, #0a0a23 0%, #1a1a3d 100%);
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  font-family: Arial, sans-serif;
+  opacity: 0;
+  transform: translateY(2rem);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-@media (min-width: 768px) {
-    .footer {
-        flex-direction: row;
-        justify-content: space-between;
-    }
+.animateIn {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .leftContent {
-    display: flex;
-    font-size: 14px;
-    font-weight: bold;
+  text-align: center;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.date {
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  color: #00ddeb;
 }
 
 .rightContent {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 14px;
-}
-
-.icons {
-    display: flex;
-    gap: 8px;
-}
-
-.icons {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
-    margin-top: 20px;
-    padding-right: 20px;
-    padding-left: 20px;
-}
-  
-.icon {
-    font-size: 24px;
-    color: #fff;
-    background-color: #000; /* Circle background */
-    border-radius: 50%; /* Makes the icon circular */
-    padding: 10px; /* Space around the icon */
-    transition: transform 0.3s;
-}
-
-.icon:hover {
-    transform: scale(1.2);
-    color: #00acee; /* Change color on hover, e.g., Twitter blue */
-}
-
-/* Responsive date styling */
-.date {
-    font-size: 14px;
-    font-weight: bold;
-    margin-left: 40px;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 
 .contactLabel {
-    /* Default styling (visible on larger screens) */
-    display: block;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #ff007a;
+}
+
+.icons {
+  display: flex;
+  gap: 1rem;
+}
+
+.icon {
+  font-size: 1.5rem;
+  color: #ffffff;
+  background: linear-gradient(135deg, #00ddeb, #ff007a);
+  border-radius: 50%;
+  padding: 0.75rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.icon:hover {
+  transform: scale(1.2);
+  box-shadow: 0 0 15px rgba(0, 221, 235, 0.5);
+}
+
+@media (min-width: 48rem) {
+  .footer {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 3rem 2rem;
   }
-  
-  @media (max-width: 768px) {
-    .contactLabel {
-      display: none; /* Hide on screens 768px and below */
-    }
+
+  .leftContent {
+    text-align: left;
   }
-  
+
+  .date {
+    margin-left: 0;
+    margin-top: 0;
+  }
+
+  .rightContent {
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 48rem) {
+  .contactLabel {
+    display: none;
+  }
+
+  .icons {
+    justify-content: center;
+  }
+}
+
+@media (min-width: 75rem) {
+  .footer {
+    padding: 4rem 2rem;
+  }
+
+  .leftContent,
+  .contactLabel {
+    font-size: 1rem;
+  }
+
+  .icon {
+    font-size: 1.75rem;
+  }
+}
