@@ -87,9 +87,12 @@ const Contact = () => {
             <input
               type="text"
               id="name"
+              name="name" 
               value={formData.name}
               onChange={handleChange}
               className={styles.input}
+              autoComplete="name"
+              required 
             />
           </div>
           <div className={styles.inputGroup}>
@@ -99,9 +102,12 @@ const Contact = () => {
             <input
               type="email"
               id="email"
+              name="email" 
               value={formData.email}
               onChange={handleChange}
               className={styles.input}
+              autoComplete="email" 
+              required 
             />
           </div>
           <div className={styles.inputGroup}>
@@ -111,9 +117,12 @@ const Contact = () => {
             <input
               type="text"
               id="subject"
+              name="subject"
               value={formData.subject}
               onChange={handleChange}
               className={styles.input}
+              autoComplete="off"
+              required 
             />
           </div>
           <div className={styles.inputGroup}>
@@ -122,9 +131,12 @@ const Contact = () => {
             </label>
             <textarea
               id="message"
+              name="message"
               value={formData.message}
               onChange={handleChange}
               className={styles.textarea}
+              autoComplete="off" 
+              required 
             />
           </div>
           <button type="submit" className={styles.submitButton}>
