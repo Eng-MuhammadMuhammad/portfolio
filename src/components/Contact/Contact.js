@@ -75,81 +75,15 @@ const Contact = () => {
     <section id="contact" className={styles.contactSection}>
       <h2 className={styles.sectionTitle}>Contact Me</h2>
       <div className={styles.contactContainer}>
-        <form
-          ref={formRef}
-          className={styles.contactForm}
-          onSubmit={handleSubmit}
-        >
-          <div className={styles.inputGroup}>
-            <label className={styles.label} htmlFor="name">
-              Name
-            </label>
-            <input
-              type="text"
-              id="name"
-              name="name" 
-              value={formData.name}
-              onChange={handleChange}
-              className={styles.input}
-              autoComplete="name"
-              required 
-            />
-          </div>
-          <div className={styles.inputGroup}>
-            <label className={styles.label} htmlFor="email">
-              Email
-            </label>
-            <input
-              type="email"
-              id="email"
-              name="email" 
-              value={formData.email}
-              onChange={handleChange}
-              className={styles.input}
-              autoComplete="email" 
-              required 
-            />
-          </div>
-          <div className={styles.inputGroup}>
-            <label className={styles.label} htmlFor="subject">
-              Subject
-            </label>
-            <input
-              type="text"
-              id="subject"
-              name="subject"
-              value={formData.subject}
-              onChange={handleChange}
-              className={styles.input}
-              autoComplete="off"
-              required 
-            />
-          </div>
-          <div className={styles.inputGroup}>
-            <label className={styles.label} htmlFor="message">
-              Message
-            </label>
-            <textarea
-              id="message"
-              name="message"
-              value={formData.message}
-              onChange={handleChange}
-              className={styles.textarea}
-              autoComplete="off" 
-              required 
-            />
-          </div>
-          <button type="submit" className={styles.submitButton}>
-            Send
-          </button>
-        </form>
         <div className={styles.contactInfo}>
           <p>
             Have an idea and need a developer to bring it to life? Feel free to
             contact me{" "}
+            <p>
             <span className={styles.boldText}>
-              or directly by filling out the form
+             <h2>or directly by filling out the form . . . </h2> 
             </span>
+            </p>
           </p>
           <ul className={styles.contactDetails}>
             <li>
@@ -164,6 +98,74 @@ const Contact = () => {
             </li>
           </ul>
         </div>
+        <form
+          ref={formRef}
+          className={styles.contactForm}
+          onSubmit={handleSubmit}
+        >
+          <div className={styles.inputGroup}>
+            <label className={styles.label} htmlFor="name">
+              Name
+            </label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              className={styles.input}
+              autoComplete="name"
+              required
+            />
+          </div>
+          <div className={styles.inputGroup}>
+            <label className={styles.label} htmlFor="email">
+              Email
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              className={styles.input}
+              autoComplete="email"
+              required
+            />
+          </div>
+          <div className={styles.inputGroup}>
+            <label className={styles.label} htmlFor="subject">
+              Subject
+            </label>
+            <input
+              type="text"
+              id="subject"
+              name="subject"
+              value={formData.subject}
+              onChange={handleChange}
+              className={styles.input}
+              autoComplete="off"
+              required
+            />
+          </div>
+          <div className={styles.inputGroup}>
+            <label className={styles.label} htmlFor="message">
+              Message
+            </label>
+            <textarea
+              id="message"
+              name="message"
+              value={formData.message}
+              onChange={handleChange}
+              className={styles.textarea}
+              autoComplete="off"
+              required
+            />
+          </div>
+          <button type="submit" className={styles.submitButton}>
+            Send
+          </button>
+        </form>
       </div>
     </section>
   );
