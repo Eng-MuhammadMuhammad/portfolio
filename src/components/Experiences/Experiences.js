@@ -7,13 +7,13 @@ const experiences = [
   {
     date: "Dec 2024 - Jan 2025",
     company: "Stolen Bikes Investigation | SBI",
-    duration: "1 Months",
+    duration: "1 Month",
     location: "Damascus, Syria",
     role: "React Frontend Dev - Layouts Designer(UI/UX)",
     description:
       "Stolen Bikes Investigation (SBI): A web app built with React and Node.js for reporting and managing stolen bike cases, enabling users to report thefts and police to efficiently track and resolve investigations.",
     skills:
-      "API Handeling ,UI/UX Design, React.js, Web Development, JavaScript, CSS, HTML",
+      "API Handling, UI/UX Design, React.js, Web Development, JavaScript, CSS, HTML",
     icon: <FaBriefcase />,
   },
   {
@@ -81,7 +81,7 @@ const experiences = [
     location: "Remote (Germany)",
     role: "UI/UX Designer & Front-End Developer",
     description:
-      "Designed and developed user-centric websites, focusing on usability, accessibility, and aesthetics. Created wireframes, mockups, and prototypes to communicate design concepts. Implemented front-end features using HTML, CSS, JavaScript, and React.js. Conducted user research and testing to improve user experience, collaborating closely with designers, developers, and project managers to deliver high-quality solutions.",
+      "Designed and developed user-friendly websites with a focus on usability, accessibility, and aesthetics. Created prototypes, implemented front-end features with HTML, CSS, JavaScript, and React.js, and improved user experience through research and testing.",
     skills:
       "UI/UX Design, Front-End Development, HTML, CSS, JavaScript, React.js, Prototyping, User Research, Accessibility",
     icon: <FaBriefcase />,
@@ -100,17 +100,17 @@ const Experiences = () => {
           }
         });
       },
-      { threshold: 0.15, rootMargin: "0px 0px -50px 0px" }
+      { threshold: 0.15 }
     );
 
-    const currentItems = itemsRef.current;
+    const elements = [...itemsRef.current];
 
-    currentItems.forEach((item) => {
+    elements.forEach((item) => {
       if (item) observer.observe(item);
     });
 
     return () => {
-      currentItems.forEach((item) => {
+      elements.forEach((item) => {
         if (item) observer.unobserve(item);
       });
     };
@@ -119,28 +119,35 @@ const Experiences = () => {
   return (
     <section id="experiences" className={styles.experienceSection}>
       <h2 className={styles.sectionTitle}>Experiences</h2>
-      <div className={styles.timelineContainer}>
-        <div className={styles.timelineLine}></div>
+      <div className={styles.cardsContainer}>
         {experiences.map((exp, index) => (
-          <article
+          <div
             key={index}
-            className={styles.experienceCard}
+            className={`${styles.experienceCard} ${styles.cardFlip}`}
             ref={(el) => (itemsRef.current[index] = el)}
           >
-            <div className={styles.cardIcon}>{exp.icon}</div>
-            <div className={styles.cardContent}>
-              <span className={styles.cardDate}>{exp.date}</span>
-              <h3 className={styles.cardCompany}>{exp.company}</h3>
-              <p className={styles.cardMeta}>
-                {exp.duration} • {exp.location}
-              </p>
-              <p className={styles.cardRole}>{exp.role}</p>
-              <p className={styles.cardDescription}>{exp.description}</p>
-              <div className={styles.cardSkills}>
-                <span className={styles.skillsLabel}>Skills:</span> {exp.skills}
+            <div className={styles.cardInner}>
+              {/* Front Side */}
+              <div className={styles.cardFront}>
+                <div className={styles.cardIcon}>{exp.icon}</div>
+                <h3 className={styles.cardCompany}>{exp.company}</h3>
+                <span className={styles.cardDate}>{exp.date}</span>
+                <div className={styles.cardMeta}>
+                  {exp.duration} • {exp.location}
+                </div>
+              </div>
+
+              {/* Back Side */}
+              <div className={styles.cardBack}>
+                <h3 className={styles.cardRole}>{exp.role}</h3>
+                <div className={styles.cardDescription}>{exp.description}</div>
+                <div className={styles.cardSkills}>
+                  <span className={styles.skillsLabel}>Skills:</span>{" "}
+                  {exp.skills}
+                </div>
               </div>
             </div>
-          </article>
+          </div>
         ))}
       </div>
     </section>
