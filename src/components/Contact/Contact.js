@@ -76,15 +76,11 @@ const Contact = () => {
       <h2 className={styles.sectionTitle}>Contact Me</h2>
       <div className={styles.contactContainer}>
         <div className={styles.contactInfo}>
-          <p>
-            Have an idea and need a developer to bring it to life? Feel free to
-            contact me{" "}
-            <p>
-            <span className={styles.boldText}>
-             <h2>or directly by filling out the form . . . </h2> 
-            </span>
-            </p>
-          </p>
+          Have an idea and need a developer to bring it to life? Feel free to
+          contact me{" "}
+          <span className={styles.boldText}>
+            <h2>or directly by filling out the form . . . </h2>
+          </span>
           <ul className={styles.contactDetails}>
             <li>
               <span className={styles.icon}>📧</span>{" "}
