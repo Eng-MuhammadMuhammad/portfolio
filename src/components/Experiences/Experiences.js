@@ -5,6 +5,18 @@ import { FaBriefcase, FaBuilding, FaCalculator } from "react-icons/fa";
 
 const experiences = [
   {
+    date: " Feb 2025 - March 2025",
+    company: "Modern Solutions",
+    duration: "2 Weeks",
+    location: "Remote",
+    role: "UI/UX Designer & React.JS Front-End Developer",
+    description:
+      "Designed and developed a modern expense tracking application to help users manage personal finances efficiently. Focused on creating a clean, intuitive interface with seamless user experience, utilizing React.js for dynamic functionality and responsive design.",
+    skills:
+      "React.js, UI/UX Design, JavaScript, CSS, HTML, Responsive Design, Figma",
+    icon: <FaCalculator />,
+  },
+  {
     date: "Dec 2024 - Jan 2025",
     company: "Stolen Bikes Investigation | SBI",
     duration: "1 Month",
