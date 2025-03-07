@@ -31,7 +31,7 @@ const Projects = () => {
     };
   }, [showAll]);
 
-  const displayedProjects = showAll ? ProjectsData : ProjectsData.slice(0, 8);
+  const displayedProjects = showAll ? ProjectsData : ProjectsData.slice(0, 10);
 
   return (
     <section id="projects" className={styles.projectsSection}>

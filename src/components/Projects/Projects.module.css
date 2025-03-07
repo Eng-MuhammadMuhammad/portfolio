@@ -23,7 +23,7 @@
 
 .projectsContainer {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+  grid-template-columns: repeat(5, 1fr);
   gap: 2rem;
   padding: 0 1rem;
 }
@@ -149,7 +149,7 @@
   }
 
   .projectCard {
-    height: 350px;
+    height: 400px;
   }
 
   .projectImage {
@@ -162,6 +162,12 @@
 
   .projectDescription {
     font-size: 0.875rem;
+  }
+}
+
+@media (min-width: 48rem) and (max-width: 75rem) {
+  .projectsContainer {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 

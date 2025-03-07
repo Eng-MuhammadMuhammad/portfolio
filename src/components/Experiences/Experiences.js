@@ -5,7 +5,19 @@ import { FaBriefcase, FaBuilding, FaCalculator } from "react-icons/fa";
 
 const experiences = [
   {
-    date: " Feb 2025 - March 2025",
+    date: "Feb 2025 - March 2025",
+    company: "Employee-Task-Management-Platform",
+    duration: "1 Month (Ongoing)",
+    location: "Remote",
+    role: "React Developer & UI/UX Designer",
+    description:
+      "Leading the development of an employee task management platform using React.js and TypeScript. Designed an intuitive interface for task assignment and tracking, integrated Vite for optimized builds, and collaborated on styling with CSS to enhance user experience. Currently focusing on scalability and feature enhancements.",
+    skills:
+      "React.js, TypeScript, UI/UX Design, Vite, CSS, JavaScript, Responsive Design",
+    icon: <FaCalculator />,
+  },
+  {
+    date: "Jan 2025 - Feb 2025",
     company: "Modern Solutions",
     duration: "2 Weeks",
     location: "Remote",
