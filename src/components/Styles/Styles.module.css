@@ -14,6 +14,7 @@ body {
   padding: 0;
 }
 
+/* Variables */
 :root {
   --primary-color: #3498db;
   --secondary-color: #2ecc71;
@@ -21,6 +22,7 @@ body {
   --text-color: #333333;
 }
 
+/* Body Styles */
 body {
   font-family: Arial, sans-serif;
   font-size: 1rem;
@@ -35,6 +37,7 @@ body {
   }
 }
 
+/* Container and Layout Styles */
 .container {
   display: flex;
   flex-wrap: wrap;
@@ -44,13 +47,16 @@ body {
 .text-center {
   text-align: center;
 }
+
 .mb-1 {
   margin-bottom: 1rem;
 }
+
 .full-height {
   height: 100vh;
 }
 
+/* Button Styles */
 .button {
   padding: 0.5rem 1rem;
   color: #fff;
@@ -60,10 +66,12 @@ body {
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
+
 .button:hover {
   background-color: var(--secondary-color);
 }
 
+/* Animation */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -72,10 +80,12 @@ body {
     opacity: 1;
   }
 }
+
 .element {
   animation: fadeIn 0.5s ease-in;
 }
 
+/* Grid Layout */
 .grid-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -89,7 +99,37 @@ body {
   }
 }
 
+/* Focus Styles */
 a:focus,
 button:focus {
   outline: 2px solid var(--primary-color);
+}
+
+/* Link Styles */
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.3s ease;
+}
+
+a:link,
+a:visited {
+  color: var(--text-color);
+}
+
+a:hover {
+  color: var(--primary-color);
+}
+
+a:active {
+  color: var(--secondary-color);
+}
+
+a:focus {
+  outline: none;
+}
+
+a::before,
+a::after {
+  content: none;
 }
