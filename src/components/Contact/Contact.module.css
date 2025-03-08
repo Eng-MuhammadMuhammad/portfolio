@@ -112,6 +112,7 @@
   gap: 1rem;
   font-size: 1rem;
   color: rgba(255, 255, 255, 0.9);
+  text-align: center;
 }
 
 .boldText {
@@ -126,10 +127,11 @@
 }
 
 .contactDetails li {
-  display: flex;
+  /* display: flex; */
   align-items: center;
   gap: 0.75rem;
   margin-bottom: 0.75rem;
+  text-align: center;
 }
 
 .icon {

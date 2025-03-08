@@ -78,9 +78,6 @@ const Contact = () => {
         <div className={styles.contactInfo}>
           Have an idea and need a developer to bring it to life? Feel free to
           contact me{" "}
-          <span className={styles.boldText}>
-            <h2>or directly by filling out the form . . . </h2>
-          </span>
           <ul className={styles.contactDetails}>
             <li>
               <span className={styles.icon}>📧</span>{" "}
@@ -93,6 +90,9 @@ const Contact = () => {
               <span className={styles.icon}>💬</span> +963992133889
             </li>
           </ul>
+          <span className={styles.boldText}>
+            <h2>or directly by filling out the form . . . </h2>
+          </span>
         </div>
         <form
           ref={formRef}
