@@ -59,7 +59,7 @@ const ScrollToTop = memo(() => {
               d="M5 15l7-7 7 7"
             />
           </svg>
-          <span className={styles.tooltip}>Back to Top</span>
+          {/* <span className={styles.tooltip}>Back to Top</span> */}
         </motion.button>
       )}
     </AnimatePresence>
