@@ -1,9 +1,29 @@
 import React, { useEffect, useRef } from "react";
 import styles from "./Experiences.module.css";
 import "../Styles/Styles.module.css";
-import { FaBriefcase, FaBuilding, FaCalculator } from "react-icons/fa";
+import {
+  FaBriefcase,
+  FaBuilding,
+  FaCode,
+  FaShoppingCart,
+  FaTasks,
+  FaUserShield,
+  FaChartLine,
+} from "react-icons/fa";
 
 const experiences = [
+  {
+    date: "March 2025 - April 2025",
+    company: "Future Learn",
+    duration: "1 Month (Done)",
+    location: "Remote",
+    role: "React Developer",
+    description:
+      "A comprehensive blog platform offering in-depth technical news, updates, and insights tailored for modern tech enthusiasts, professionals, and innovators, covering emerging trends, tools, and advancements in the technology landscape.",
+    skills:
+      "React.js, TypeScript, UI/UX Design, Vite, CSS, JavaScript, Responsive Design",
+    icon: <FaCode />, // Represents coding/development
+  },
   {
     date: "Feb 2025 - March 2025",
     company: "Employee-Task-Management-Platform",
@@ -14,7 +34,7 @@ const experiences = [
       "Leading the development of an employee task management platform using React.js and TypeScript. Designed an intuitive interface for task assignment and tracking, integrated Vite for optimized builds, and collaborated on styling with CSS to enhance user experience. Currently focusing on scalability and feature enhancements.",
     skills:
       "React.js, TypeScript, UI/UX Design, Vite, CSS, JavaScript, Responsive Design",
-    icon: <FaCalculator />,
+    icon: <FaTasks />, // Represents task management
   },
   {
     date: "Jan 2025 - Feb 2025",
@@ -26,7 +46,7 @@ const experiences = [
       "Designed and developed a modern expense tracking application to help users manage personal finances efficiently. Focused on creating a clean, intuitive interface with seamless user experience, utilizing React.js for dynamic functionality and responsive design.",
     skills:
       "React.js, UI/UX Design, JavaScript, CSS, HTML, Responsive Design, Figma",
-    icon: <FaCalculator />,
+    icon: <FaChartLine />, // Represents finance/tracking
   },
   {
     date: "Dec 2024 - Jan 2025",
@@ -38,7 +58,7 @@ const experiences = [
       "Stolen Bikes Investigation (SBI): A web app built with React and Node.js for reporting and managing stolen bike cases, enabling users to report thefts and police to efficiently track and resolve investigations.",
     skills:
       "API Handling, UI/UX Design, React.js, Web Development, JavaScript, CSS, HTML",
-    icon: <FaBriefcase />,
+    icon: <FaUserShield />, // Represents investigation/security
   },
   {
     date: "Aug 2024 - Oct 2024",
@@ -50,7 +70,7 @@ const experiences = [
       "Worked on a modern shopping platform for light products, optimizing the UI and implementing features for better product browsing and purchasing. Collaborated with back-end teams to integrate APIs.",
     skills:
       "E-commerce, UI/UX Design, React.js, Web Development, JavaScript, CSS, HTML",
-    icon: <FaCalculator />,
+    icon: <FaShoppingCart />, // Represents e-commerce/shopping
   },
   {
     date: "May 2024 - Jul 2024",
@@ -61,7 +81,7 @@ const experiences = [
     description:
       "Developed a task management application with an emphasis on ease of use and responsiveness. Used React.js to build a dynamic and user-friendly platform for managing personal and team tasks.",
     skills: "React.js, UI/UX Design, JavaScript, CSS, HTML",
-    icon: <FaBuilding />,
+    icon: <FaTasks />, // Represents task management
   },
   {
     date: "Jan 2024 - Apr 2024",
@@ -73,7 +93,7 @@ const experiences = [
       "Designed and developed an e-commerce platform for a clothing store, creating an intuitive shopping experience with modern design trends. Implemented React.js and integrated payment solutions for smooth transactions.",
     skills:
       "E-commerce, React.js, Web Design, CSS, HTML, User Interface, JavaScript",
-    icon: <FaBriefcase />,
+    icon: <FaShoppingCart />, // Represents e-commerce/shopping
   },
   {
     date: "Jul 2023 - Dec 2023",
@@ -84,7 +104,7 @@ const experiences = [
     description:
       "Worked on designing responsive and accessible user interfaces for various projects, including e-commerce and corporate websites. Focused on optimizing the design to enhance user experience, collaborating with teams to ensure seamless delivery of high-quality solutions.",
     skills: "UI/UX Design, React.js, HTML, CSS, Prototyping, E-commerce, Figma",
-    icon: <FaCalculator />,
+    icon: <FaBuilding />, // Represents corporate solutions
   },
   {
     date: "Jan 2023 - Jun 2023",
@@ -96,7 +116,7 @@ const experiences = [
       "Led the design and development of several projects, focusing on creating modern, user-friendly interfaces. Collaborated with backend developers to integrate API services into user-facing applications, improving functionality and user experience.",
     skills:
       "UI/UX Design, React.js, Front-End Development, Web Development, Figma, Sketch",
-    icon: <FaBuilding />,
+    icon: <FaCode />, // Represents coding/development
   },
   {
     date: "Oct 2022 - Nov 2023",
@@ -108,7 +128,7 @@ const experiences = [
       "Designed and developed user-friendly websites with a focus on usability, accessibility, and aesthetics. Created prototypes, implemented front-end features with HTML, CSS, JavaScript, and React.js, and improved user experience through research and testing.",
     skills:
       "UI/UX Design, Front-End Development, HTML, CSS, JavaScript, React.js, Prototyping, User Research, Accessibility",
-    icon: <FaBriefcase />,
+    icon: <FaBriefcase />, // Represents professional business solutions
   },
 ];
 
